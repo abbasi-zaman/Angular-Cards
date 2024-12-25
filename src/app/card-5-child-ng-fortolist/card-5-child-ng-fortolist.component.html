@@ -1,0 +1,31 @@
+
+<div class="card" *ngFor="let post of posts">
+    <div class="card-image">
+      <figure class="image is-4by3">
+            <!-- //property binding -->
+            <img [src]="post.imageurl" alt="Placeholder image">
+      </figure>
+    </div>
+    <div class="card-content">
+      <div class="media">
+        <div class="media-left">
+          <figure class="image is-48x48">
+            <!-- //property binding -->
+            <img [src]="post.imageurl" alt="Placeholder image">
+          </figure>
+        </div>
+        <div class="media-content">
+            <!-- //string interpolation -->
+          <p class="title is-4" > {{post.name}} </p>
+          <p class="subtitle is-6">{{post.title}}</p>
+        </div>
+      </div>
+      <div class="content">{{post.description}}
+        <!-- //string interpolation -->
+        <a>{{post.title}}</a>.
+        <a href="#">#css</a> <a href="#">#responsive</a>
+        <br>
+        <time datetime="2016-1-1">11:09 PM - 1 Jan 2016</time>
+      </div>
+    </div>
+</div>

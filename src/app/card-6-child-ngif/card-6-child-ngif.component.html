@@ -1,0 +1,44 @@
+<!-- //Learn Directive [ngClass] -->
+<div class = "search-div" [ngClass]=" {changeBackground: searchvalue != '' } ">
+  <span appCard7DirecticeAppClass><b> Search: </b></span>
+  <input type="text" [(ngModel)]="searchvalue" >
+  <span *ngIf="searchvalue != ''"> You Searched for {{searchvalue}}</span>
+</div>
+<div class="card" *ngFor="let post of posts">
+    <div class="card-image">
+      <figure class="image is-4by3">
+         <img [src]="post.imageurl" alt="Placeholder image">
+      </figure>
+    </div>
+    <div class="card-content">
+      <div class="media">
+        <div class="media-left">
+          <figure class="image is-48x48">
+            <img [src]="post.imageurl" alt="Placeholder image">
+          </figure>
+        </div>
+        <div class="media-content">
+            <!-- //Learn Directive [ngStyle] -->
+          <p class="title is-7"  [ngStyle]="{color : post.show === true ? 'Green': 'Red'}">
+             {{post.name}}  With [ngStyle] 
+          </p>
+          <p class="subtitle is-6" >{{post.title}}</p>
+        </div>
+      </div>
+      <div class="content" >{{post.description}}
+        <a>{{post.title}}</a>.
+        <br/>
+        <!-- //Learn Directive  *ngIf -->
+        <div  *ngIf="post.show; else othercondition">
+            <span style="color: beige;">The Test Directive with *ngIf </span> 
+        </div>
+        <!-- //Learn Directive  *ngIf  and else -->
+        <!-- //ng-template -->
+        <ng-template #othercondition>
+            <span style="color: beige;">Test Directive With else *ngIf</span> 
+        </ng-template>
+        <br>
+        <time datetime="2016-1-1">11:09 PM - 1 Jan 2016</time>
+      </div>
+    </div>
+</div>
